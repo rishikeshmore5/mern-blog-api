@@ -11,13 +11,13 @@ const path = require("path");
 const cors = require("cors");
 
 //middleware
--app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
     origin: [
       "http://localhost:3000/",
       "https://rishikeshmore5.github.io/mern-blog-app-frontend/",
-      "https://mern-blog-app.onrender.com",
+      "https://mern-blog-app.onrender.com/",
     ],
   })
 );
@@ -55,6 +55,12 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-app.listen("5000", () => {
+// app.use(express.static(path.join(__dirname, "/client/build")));
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "/client/build", "index.html")); //* means any path
+// });
+
+app.listen(process.env.PORT || "5000", () => {
   console.log("Backend is running.");
 });
