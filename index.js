@@ -17,6 +17,7 @@ app.use(
     origin: [
       "http://localhost:3000/",
       "https://rishikeshmore5.github.io/mern-blog-app-frontend/",
+      "https://mern-blog-app.onrender.com",
     ],
   })
 );
